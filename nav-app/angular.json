@@ -11,6 +11,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "baseHref": "/navigator/",
                         "outputPath": "dist",
                         "index": "src/index.html",
                         "main": "src/main.ts",
@@ -75,7 +76,8 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                      "buildTarget": "nav-app:build"
+                      "buildTarget": "nav-app:build",
+                      "disableHostCheck": true
                     },
                     "configurations": {
                         "production": {
