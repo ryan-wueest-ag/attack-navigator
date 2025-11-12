@@ -163,13 +163,11 @@ o888     88 o888   888o 8888o  88  88  888  88  888    888 o888   888o 888      
                         <div>
                             <!-- save single layer locally as JSON -->
                             <div *ngIf="configService.getFeature('download_layer')" class="control-row-item">
-                                <div
-                                    class="control-row-button noselect"
-                                    (click)="saveLayerLocally()"
-                                    matTooltipPosition="below"
-                                    matTooltip="download single layer as json">
-                                    <span class="material-icons" alt="save layer">code</span>
-                                </div>
+                              <div class="control-row-button noselect" (click)="saveLayerLocally()" matTooltipPosition="below" matTooltip="save layer">
+                                <FONT COLOR="#34aa54">
+                                  <span class="material-icons" alt="export">file_download</span>
+                                </FONT>
+                              </div>
                             </div>
 
                             <!-- save all layers locally as JSON -->

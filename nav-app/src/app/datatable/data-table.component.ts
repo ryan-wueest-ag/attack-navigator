@@ -78,7 +78,7 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
     public scoreEditField: string = '';
 
     private selectionChangeSubscription: Subscription;
-    
+
     public layerControlsList = [];
     public techniqueControlsList = [];
     public selectionControlsList = [];
@@ -175,7 +175,7 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
             this.handleTechniqueControlsSettingsDropdown();
         }
     }
-    
+
     handleKeyDownSelection(event: KeyboardEvent): void {
         if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
@@ -259,10 +259,20 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
      * stores the string as a blob, and saves the blob as a
      * JSON file
      */
-    public saveLayerLocally(): void {
-        let json = this.viewModel.serialize(this.downloadAnnotationsOnVisibleTechniques);
-        let blob = new Blob([json], { type: 'text/json' });
-        this.saveLayerJson_helper(blob);
+    saveLayerLocally(){
+        var json = this.viewModel.serialize(this.downloadAnnotationsOnVisibleTechniques);
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://127.0.0.1/reporting/reports/updateMitreLayer/");
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+
+            }
+        };
+        let data = json;
+        xhr.send(data);
     }
 
     /**
