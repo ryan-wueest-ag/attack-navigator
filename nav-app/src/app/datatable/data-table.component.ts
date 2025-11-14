@@ -262,7 +262,7 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
     saveLayerLocally(){
         var json = this.viewModel.serialize(this.downloadAnnotationsOnVisibleTechniques);
         let xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://127.0.0.1/reporting/reports/updateMitreLayer/");
+        xhr.open("POST", "/reporting/reports/updateMitreLayer/");
         xhr.withCredentials = true;  // Required to send session cookies with cross-origin requests
         xhr.setRequestHeader("Accept", "application/json");
         xhr.setRequestHeader("Content-Type", "application/json");
