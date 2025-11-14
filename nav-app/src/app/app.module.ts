@@ -18,7 +18,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { DndModule } from 'ngx-drag-drop';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CredentialsInterceptor } from './services/credentials.interceptor';
 
 import { AppComponent } from './app.component';
 import { DataTableComponent } from './datatable/data-table.component';
@@ -111,6 +112,11 @@ import { ConfigService } from './services/config.service';
                 return () => configService.loadConfig();
             },
             deps: [ConfigService],
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: CredentialsInterceptor,
             multi: true,
         },
     ],

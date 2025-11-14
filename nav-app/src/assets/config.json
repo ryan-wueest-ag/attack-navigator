@@ -24,7 +24,7 @@
 
     "default_layers": {
         "enabled": true,
-        "urls": ["https://127.0.0.1/reporting/reports/getMitreLayer/"]
+        "urls": ["/reporting/reports/getMitreLayer/"]
     },
 
     "comment_color": "yellow",
